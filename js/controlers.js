@@ -1,18 +1,13 @@
-var madianol = angular.module('madianol', []);
-madianol.controller('PhoneListCtrl', function($scope) {
-    $scope.phones = [{
-        'name': 'Nexus S1',
-        'snippet': 'Fast just got faster with Nexus S.',
-        'age': 1
-    }, {
-        'name': 'Motorola XOOM™ with Wi-Fi3',
-        'snippet': 'The Next, Next Generation tablet.',
-        'age': 3
-    }, {
-        'name': 'MOTOROLA XOOM™2',
-        'snippet': 'The Next, Next Generation tablet.',
-        'age': 2
-    }];
+var phonecatControllers = angular.module('phonecatControllers', []);
+phonecatControllers.controller('PhoneListCtrl', function($scope, $http) {
+    $http.get('phones.json').success(function(data) {
+        $scope.phones = data;
+    });
 
     $scope.orderProp = "age";
 });
+phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
+    function($scope, $routeParams) {
+        $scope.phoneId = $routeParams.phoneId;
+    }
+])
