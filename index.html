@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="madianol">
+<header>
+    <meta charset="utf-8">
+    <title>My Html File</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/app.css">
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/js/controlers.js"></script>
+</header>
+
+<body ng-controller="PhoneListCtrl">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                Search:
+                <input ng-model="query">
+                Sort by:
+                <select name="" id="" ng-model="orderProp">
+                	<option value="name">Alphabetical</option>
+                	<option value="age">Newest</option>
+                </select>
+            </div>
+            <div class="col-md-10">
+                <ul>
+                    <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
+                        <span>{{phone.name}}</span>
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
