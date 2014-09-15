@@ -1,4 +1,4 @@
-var phonecatApp = angular.module('phonecatApp', ['ngRoute', 'phonecatControlers']);
+var phonecatApp = angular.module('phonecatApp', ['ngRoute', 'phonecatControllers']);
 phonecatApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.when('/phones', {
@@ -10,7 +10,7 @@ phonecatApp.config(['$routeProvider',
             controller: 'PhoneDetailCtrl'
         }).
         otherwise({
-            rediretTo: '/phones'
+            redirectTo: '/phones'
         })
     }
-])
+]);
