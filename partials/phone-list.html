@@ -12,16 +12,17 @@
                     <input ng-model="query">Sort by:
                     <select name="" id="" ng-model="orderProp">
                         <option value="name">Alphabetical</option>
-                        <option value="age">Newest</option>
+                        <option value="price">Newest</option>
                     </select>
                 </div>
                 <div class="col-md-10">
                     <ul>
                         <li ng-repeat="phone in phones | filter:query | orderBy:orderProp">
-                            <a herf="#/phones/{{phone.id}}" class="thumb">
-                                <!-- <img src="" alt="" ng-src="{{phone.imageUrl}}"> -->
-                            </a>
+                            <!--<a herf="#/phones/{{phone.id}}" class="thumb">
+                                 <img src="" alt="" ng-src="{{phone.imageUrl}}"> 
+                            </a>-->
                             <a href="#/phones/{{phone.id}}" target="_blank">{{phone.name}}</a>
+                            <span>￥{{phone.price}}元</span>
                             <p>{{phone.snippet}}</p>
                         </li>
                     </ul>
