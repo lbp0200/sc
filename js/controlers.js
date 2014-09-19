@@ -12,4 +12,12 @@ phonecatControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams',
     function($scope, $routeParams) {
         $scope.phoneId = $routeParams.phoneId;
     }
-])
+]);
+phonecatControllers.controller('EventController', ['$scope',
+    function($scope) {
+        $scope.count = 0;
+        $scope.$on('MyEvent', function() {
+            $scope.count++;
+        });
+    }
+]);
